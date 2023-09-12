@@ -1,0 +1,60 @@
+<!-- templates/index.html -->
+{% extends 'base_sidebar.html' %}
+
+{% block content %}
+<head>
+    <title>Scrape</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='scrape.css') }}">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<style>
+ 
+</style>
+</head>
+
+<body>
+    <div class="container " style="color: #000000; background: #ecebeb;border-radius: 10px; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <form id="signupform" action="#" method="POST" role="form">
+        
+            <div class="row">
+                <h1 style="color: #000000;align-items: center;" align="center" >Scraper</h1>
+        
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="html">Key Word</label>
+                    <br>
+                    <input type="text" class="form-control " placeholder="Enter Keyword"  name="keyword">
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="html" style="color: #000000;">Number of Tweets(Between Range 1-2000)</label><br>
+                <input type="number" class="form-control " name="tweets" min="1" max="2000">
+            </div>
+        </div>
+        <br>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="html" style="color: #000000;">Start Date</label><br>
+            <input type="date" class=" form-control " name="start"> 
+            </div>
+        </div>
+        <br>
+        <div class="col-md-6">
+            <div class="form-group">          
+                <label for="html" style="color: #000000;">End Date</label><br>
+                <input type="date" class=" form-control " name="end">  
+            </div>
+        </div>
+        <br>
+        </form>
+        </div>
+        <button style="border-radius: 5px;" type="submit">Scrape</button>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script>
+    setInterval(function(){ $(".alert").fadeOut(); }, 3000);
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='sidebar.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='prediction_and_analysis.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='scrape.css') }}">
+  
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li><a href="{{ url_for('index') }}">Home</a></li>
+      <li><a href="{{ url_for('scrape') }}">Scrapper</a></li>
+      <li><a href="{{ url_for('prediction_and_analysis') }}">Prediction and Analysis</a></li>
+      <li><a href="/logout">logout</a></li>
+
+      <!-- Add more options here -->
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>

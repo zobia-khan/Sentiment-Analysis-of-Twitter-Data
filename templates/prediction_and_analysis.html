@@ -1,0 +1,48 @@
+<!-- templates/index.html -->
+{% extends 'base_sidebar.html' %}
+
+
+{% block content %}
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='prediction_and_analysis.css') }}">
+  </head>
+<body>
+  <div class="container wrap" style="border-radius: 10px; background: #ecebeb; padding: 10px;">
+    <h1 style="color: #000000;">Prediction and Analysis</h1>
+    <p>This is the Prediction and Analysis page. Enter your csv file and choose an option to perform analysis on it.</p>
+
+    <form action="/prediction_and_analysis" method="post" enctype="multipart/form-data">
+      <label for="file">File: </label>
+      <input type="file" name="file" id="file"><br/>
+      <div id="optionsContainer">
+        <h2>Select an option:</h2>
+        <label for="urduOption">
+          Urdu
+          <input type="radio" id="urduOption" name="option" value="urdu">
+        </label>
+        <label for="englishOption">
+          English
+          <input type="radio" id="englishOption" name="option" value="english">
+        </label>
+        <label for="romanUrduOption">
+          Roman Urdu
+          <input type="radio" id="romanUrduOption" name="option" value="roman_urdu">
+        </label>
+        <label for="romanUrduMixOption">
+           Mix Data
+          <input type="radio" id="romanUrduMixOption" name="option" value="mix_data">
+        </label>
+      </div>
+      <button type="submit">Predict</button>
+    </form>
+    {% for message in get_flashed_messages() %}
+    <div style="margin-bottom: 25px" class="alert alert-warning alert-dismissible show" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+
+    {% block page_content %}{% endblock %}
+
+    </div>
+</body>
+{% endblock %}
